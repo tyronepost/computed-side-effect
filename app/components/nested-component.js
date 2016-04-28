@@ -2,8 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     selectedValue: null,
-    
-    displayText: Ember.computed('selectedValue', function() {
+    miscValue: null,
+
+    displayText: Ember.computed('selectedValue', 'miscValue', function() {
         console.log('computedProperty called');
        let obj = this.get('obj');
         let a = obj.a;
@@ -12,12 +13,12 @@ export default Ember.Component.extend({
         Ember.set(obj, 'b', 'FOO');
         return a + ' ' + b;
     }),
-    
+
     actions: {
         selectValue(newValue) {
             console.log('calling selectValue');
             Ember.set(this, 'selectedValue', newValue.target.value);
-            
+            Ember.set(this, 'miscValue', newValue.target.value);
         }
     }
 
