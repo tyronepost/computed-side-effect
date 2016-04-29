@@ -9,6 +9,7 @@ export default Ember.Component.extend({
        let obj = this.get('obj');
         let a = obj.a;
         let b = obj.b;
+        obj.arr[0] = Math.random();
         Ember.set(obj, 'a', 'SUP');
         Ember.set(obj, 'b', 'FOO');
         return a + ' ' + b;
